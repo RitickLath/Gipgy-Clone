@@ -1,1 +1,0 @@
-# Gipgy-Clone
