@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GIPHY from "../assets/GIPHY.png";
 import { IoMdMore } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { GifState } from "../context/Context";
+
 const Navbar = () => {
   const [showDiv, setShowDiv] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  const { gf, gifs, setGifs, filter, setFilter, favourite } = GifState();
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const result = await gf.categories();
+        //console.log(result.data);
+        setCategories(result?.data);
+      } catch (error) {
+        console.error(`categories`, error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   return (
-    <div className="mb-8  relative">
-      <div className=" flex justify-around">
+    <div className="mb-8">
+      <div className=" flex justify-between lg:justify-around">
         <Link to="/">
           <img className="w-[150px]" src={GIPHY} alt="" />
         </Link>
@@ -25,8 +43,15 @@ const Navbar = () => {
           Favourite
         </Link>
       </div>
+
       {showDiv && (
-        <div className="w-full bg-yellow-100 lg:h-[200px] mt-3"></div>
+        <div className="w-full lg:w-[90%] mx-auto px-4 py-4 lg:px-12 bg-yellow-100 text-black lg:h-[200px] mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 font-bold">
+          {categories.map((categories) => (
+            <Link to={`/${categories.name}`} key={categories.name}>
+              {categories.name}
+            </Link>
+          ))}
+        </div>
       )}
     </div>
   );
