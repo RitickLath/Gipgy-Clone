@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { GifState } from "../context/Context";
 
 const Display = ({ a, setHover, index, hover }) => {
+  const [selected, setSelected] = useState(false);
+  const { favourite, setFavourite } = GifState();
+
+  const addToFavourite = () => {
+    setFavourite([...favourite, a.images.fixed_width.webp]);
+  };
+
+  const removeFromFavourite = () => {
+    const updatedFavourite = favourite.filter(
+      (item) => item !== a.images.fixed_width.webp
+    );
+    setFavourite(updatedFavourite);
+  };
+
   return (
-    <div className="relative" key={a.id}>
+    <div className="relative" key={index}>
       <img
         className="relative group"
         style={{ marginRight: "10px", marginBottom: "10px" }}
@@ -11,9 +27,27 @@ const Display = ({ a, setHover, index, hover }) => {
         onMouseEnter={() => setHover(index)}
         onMouseLeave={() => setHover(null)}
       />
-      {hover == index && (
+      {selected ? (
+        <FaHeart
+          onClick={() => {
+            setSelected(!selected);
+            removeFromFavourite();
+          }}
+          size={20}
+          className="absolute top-4 right-8 cursor-pointer text-red-500"
+        />
+      ) : (
+        <FaRegHeart
+          onClick={() => {
+            setSelected(!selected);
+            addToFavourite();
+          }}
+          size={20}
+          className="absolute top-4 right-8 cursor-pointer"
+        />
+      )}
+      {hover === index && (
         <div className="text-lg flex space-x-5 font-bold  absolute top-5 left-3">
-          {/* <img src={a.user.avatar_url} alt="" /> */}
           <img className="w-[20px]" src={a?.user?.avatar_url} alt="" />
           {a?.username}
         </div>

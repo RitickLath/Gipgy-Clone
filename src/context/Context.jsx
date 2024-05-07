@@ -19,6 +19,7 @@ const Context = ({ children }) => {
         filter,
         setFilter,
         favourite,
+        setFavourite,
       }}
     >
       {children}
