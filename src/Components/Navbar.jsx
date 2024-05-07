@@ -31,10 +31,30 @@ const Navbar = () => {
         </Link>
 
         {/* Dynamic Take 4 Category */}
-        <Link className="hidden lg:block mt-2">Category-1</Link>
-        <Link className="hidden lg:block mt-2">Category-1</Link>
-        <Link className="hidden lg:block mt-2">Category-1</Link>
-        <Link className="hidden lg:block mt-2">Category-1</Link>
+        <Link
+          to={categories[0]?.name || "Reactions"}
+          className="hidden lg:block mt-2"
+        >
+          {categories[0]?.name || "Reactions"}
+        </Link>
+        <Link
+          to={categories[1]?.name || "Adjectives"}
+          className="hidden lg:block mt-2"
+        >
+          {categories[1]?.name || "Adjectives"}
+        </Link>
+        <Link
+          to={categories[2]?.name || "Animals"}
+          className="hidden lg:block mt-2"
+        >
+          {categories[2]?.name || "Animals"}
+        </Link>
+        <Link
+          to={categories[3]?.name || "Anime"}
+          className="hidden lg:block mt-2"
+        >
+          {categories[3]?.name || "Anime"}
+        </Link>
         <button onClick={() => setShowDiv(!showDiv)}>
           <IoMdMore size={25} className="mt-3" />
         </button>
