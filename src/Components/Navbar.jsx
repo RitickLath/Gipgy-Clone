@@ -55,17 +55,25 @@ const Navbar = () => {
         >
           {categories[3]?.name || "Anime"}
         </Link>
-        <button onClick={() => setShowDiv(!showDiv)}>
-          <IoMdMore size={25} className="mt-3" />
+        <button className="flex space-x-3 mr-3 sm:mr-0">
+          <Link to="/favourite" className=" mt-2">
+            Favourite
+          </Link>
+          <IoMdMore
+            onClick={() => setShowDiv(!showDiv)}
+            size={25}
+            className="mt-2"
+          />
         </button>
+
         {/* Favourite */}
-        <Link to="/favourite" className="hidden lg:block mt-2">
+        {/* <Link to="/favourite" className="hidden lg:block mt-2">
           Favourite
-        </Link>
+        </Link> */}
       </div>
 
       {showDiv && (
-        <div className="w-full lg:w-[90%] mx-auto px-4 py-4 lg:px-12 bg-yellow-100 text-black lg:h-[200px] mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 font-bold">
+        <div className="w-full lg:w-[90%] rounded-md mx-auto px-4 py-4 lg:px-12 bg-[#2E2E2E] text-white lg:h-[200px] mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 font-semibold">
           {categories.map((categories) => (
             <Link to={`/${categories.name}`} key={categories.name}>
               {categories.name}

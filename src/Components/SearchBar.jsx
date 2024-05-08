@@ -22,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="lg:px-4 flex w-full pb-4">
+    <div className="px-2 lg:px-4 flex w-full space-x-2 pb-4">
       <input
         ref={search}
         className="px-4 h-14 w-[95%]  rounded-md text-lg outline-none text-black"
@@ -34,9 +34,9 @@ const SearchBar = () => {
           // console.log(search?.current?.value);
           searchFetch();
         }}
-        className="w-[60px] lg:w-[5%] bg-white rounded-sm flex justify-center items-center"
+        className="w-[60px] lg:w-[5%] bg-red-500 rounded-md flex justify-center items-center"
       >
-        <FaSearch size={20} className="text-black" />
+        <FaSearch size={20} className="text-white" />
       </button>
     </div>
   );
