@@ -16,7 +16,7 @@ const FavouritePage = () => {
   return (
     <div className="flex flex-wrap">
       {favourite.length === 0 && (
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[80vh] flex justify-center items-center">
           <h1 className="text-3xl text-gray-300">
             Your favorites list is empty
           </h1>
