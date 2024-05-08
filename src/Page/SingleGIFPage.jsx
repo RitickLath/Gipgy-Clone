@@ -30,7 +30,7 @@ const SingleGIFPage = () => {
   return (
     <div>
       {/* First Div */}
-      <div className="hidden sm:flex lg:px-4 justify-around h-screen mt-10">
+      <div className="hidden sm:flex lg:px-4 justify-around h-[100%] mt-10">
         {/* First Div */}
         <FirstDiv a={a} />
         {/* Seconds Div */}
