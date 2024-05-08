@@ -32,7 +32,7 @@ const HomePage = () => {
     <div>
       <FilterBtn setrendered={setrendered} />
       {rendered && <ShimmerUI />}
-      <div className="flex flex-wrap px-8 mt-10">
+      <div className="flex flex-wrap justify-center sm:justify-normal px-8 mt-10">
         {gifs.length &&
           gifs.map((a, index) => (
             <div className="relative" key={a.id}>
