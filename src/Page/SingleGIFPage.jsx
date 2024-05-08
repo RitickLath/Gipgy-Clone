@@ -40,7 +40,7 @@ const SingleGIFPage = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="sm:hidden flexflex-rows space-y-9 h-screen mt-10">
+      <div className="sm:hidden flex-rows space-y-9 h-screen mt-10">
         <SecondDiv a={a} />
         <FirstDiv a={a} />
         <ThirdDiv a={a} />
