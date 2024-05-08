@@ -30,7 +30,7 @@ const SingleGIFPage = () => {
   return (
     <div>
       {/* First Div */}
-      <div className="hidden sm:flex lg:px-4 justify-around h-[100%] mt-10">
+      <div className="hidden sm:flex lg:px-4 justify-around mt-10 h-screen">
         {/* First Div */}
         <FirstDiv a={a} />
         {/* Seconds Div */}
@@ -40,7 +40,7 @@ const SingleGIFPage = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="sm:hidden flex-rows space-y-9 h-screen mt-10">
+      <div className="sm:hidden flex-rows space-y-9 h-[100%] mt-10">
         <SecondDiv a={a} />
         <FirstDiv a={a} />
         <ThirdDiv a={a} />

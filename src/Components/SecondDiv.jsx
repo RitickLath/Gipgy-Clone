@@ -26,7 +26,7 @@ const SecondDiv = ({ a }) => {
       )}
 
       <img
-        className="relative group w-[300px] lg:w-[450px] "
+        className="relative group h-[150px] aspect-auto lg:h-[220px] "
         src={a?.images?.fixed_width.webp}
         alt=""
       />
