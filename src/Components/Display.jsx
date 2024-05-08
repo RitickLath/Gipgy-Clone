@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { GifState } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 
 const Display = ({ a, setHover, index, hover }) => {
   const [selected, setSelected] = useState(false);
   const { favourite, setFavourite } = GifState();
+  const navigate = useNavigate();
 
   const addToFavourite = () => {
     setFavourite([...favourite, a.images.fixed_width.webp]);
@@ -26,6 +28,10 @@ const Display = ({ a, setHover, index, hover }) => {
         alt=""
         onMouseEnter={() => setHover(index)}
         onMouseLeave={() => setHover(null)}
+        onClick={() => {
+          // console.log(a.id);
+          navigate(`/clips/${a?.id}`);
+        }}
       />
       {selected ? (
         <FaHeart
