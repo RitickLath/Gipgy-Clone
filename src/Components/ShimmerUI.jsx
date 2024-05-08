@@ -7,7 +7,11 @@ const ShimmerUI = () => {
       className="bg-[#2E2E2E] rounded-lg w-40 h-40 mx-4 my-4 animate-pulse"
     ></div>
   ));
-  return <div className="flex flex-wrap px-8 mt-10">{dummyDivs}</div>;
+  return (
+    <div className="flex flex-wrap justify-center sm:justify-normal px-8 mt-10">
+      {dummyDivs}
+    </div>
+  );
 };
 
 export default ShimmerUI;
